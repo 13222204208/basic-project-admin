@@ -85,6 +85,36 @@ export const constantRoutes = [
     ]
   },
 
+  {
+    path: '/agreement',
+    component: Layout,
+    redirect: '/agreement/create',
+    name: 'Agreement',
+    meta: { title: '协议管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'create',
+        name: 'CreateAgreement',
+        component: () => import('@/views/agreement/create'),
+        meta: { title: '添加协议', icon: 'tree' },
+        hidden: true
+      },
+      {
+        path: 'list',
+        name: 'AgreementList',
+        component: () => import('@/views/agreement/list'),
+        meta: { title: '协议列表', icon: 'table' }
+      },
+      {
+        path: 'edit/:id(\\d+)',
+        component: () => import('@/views/agreement/edit'),
+        name: 'EditAgreement',
+        meta: { title: '编辑协议', noCache: true, activeMenu: '/agreement/list' },
+        hidden: true
+      },
+    ]
+  },
+
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

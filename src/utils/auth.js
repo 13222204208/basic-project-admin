@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'jsq_token'
+const TokenKey = 'basic_token'
 
 export function getToken() {
   return Cookies.get(TokenKey)
